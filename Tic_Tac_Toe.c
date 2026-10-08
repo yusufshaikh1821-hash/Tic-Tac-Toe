@@ -38,16 +38,6 @@ int main()
 
     while (1)
     {
-        int c1, c2;
-        srand(time(0));
-        c1 = (rand() % ((2 - 0) + 1)) + 0;
-        srand(time(0));
-        c2 = (rand() % ((2 - 0) + 1)) + 0;
-
-        printf("Computer's choice : %d%d\n", c1, c2);
-
-        grid[c1][c2] = 0;
-
         int y1, y2;
         printf("Enter your choice (1st Number) :-> ");
         scanf("%d", &y1);
@@ -58,6 +48,44 @@ int main()
 
         grid[y1][y2] = 1;
 
+        int c1, c2;
+        srand(time(0));
+        c1 = (rand() % ((2 - 0) + 1)) + 0;
+        srand(time(0));
+        c2 = (rand() % ((2 - 0) + 1)) + 0;
+
+        if (c1 != y1 && c2 != y2)
+        {
+
+            printf("Computer's choice : %d%d\n", c1, c2);
+
+            grid[c1][c2] = 0;
+        }
+        else
+        {
+
+            srand(time(0));
+            c1 = (rand() % ((2 - 0) + 1)) + 0;
+            srand(time(0));
+            c2 = (rand() % ((2 - 0) + 1)) + 0;
+
+            printf("Computer's choice : %d%d\n", c1, c2);
+
+            grid[c1][c2] = 0;
+        }
+
+        if (grid[0][0] == 1 && grid[0][1] == 1 && grid[0][2] == 1 || grid[1][0] == 1 && grid[1][1] == 1 && grid[1][2] == 1 || grid[2][0] == 1 && grid[2][1] == 1 && grid[2][2] == 1 || grid[0][0] == 1 && grid[1][0] == 1 && grid[2][0] == 1 || grid[0][1] == 1 && grid[1][1] == 1 && grid[2][1] == 1 || grid[0][2] == 1 && grid[1][2] == 1 && grid[2][2] == 1 || grid[0][0] == 1 && grid[1][1] == 1 && grid[2][2] == 1 || grid[0][2] == 1 && grid[1][1] == 1 && grid[2][0] == 1)
+        {
+            printf("Game Over!");
+            printf("You Win!");
+            break;
+        }
+        if (grid[0][0] == 0 && grid[0][1] == 0 && grid[0][2] == 0 || grid[1][0] == 0 && grid[1][1] == 0 && grid[1][2] == 0 || grid[2][0] == 0 && grid[2][1] == 0 && grid[2][2] == 0 || grid[0][0] == 0 && grid[1][0] == 0 && grid[2][0] == 0 || grid[0][1] == 0 && grid[1][1] == 0 && grid[2][1] == 0 || grid[0][2] == 0 && grid[1][2] == 0 && grid[2][2] == 0 || grid[0][0] == 0 && grid[1][1] == 0 && grid[2][2] == 0 || grid[0][2] == 0 && grid[1][1] == 0 && grid[2][0] == 0)
+        {
+            printf("Game Over!");
+            printf("Computer Win!");
+            break;
+        }
     }
     return 0;
 }
