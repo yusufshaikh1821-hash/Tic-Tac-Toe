@@ -5,11 +5,13 @@ int main()
 
     printf("Tic-Tac-Toe\n");
 
-    printf("Note (How to play) : Enter the two numbers associated\nwith the specific grid spot on grid\nto enter your choice of 0 or 1.\n");
+    printf("Note (How to play) : Enter the number associated\nwith the specific grid spot on the grid\nto enter your choice of 1 or 0.\n");
 
     printf("Playing Grid (3x3)\n");
 
     int grid[3][3];
+
+    int k = 1;
 
     for (int i = 0; i < 3; i++)
     {
@@ -17,11 +19,13 @@ int main()
         {
             if (j == 2)
             {
-                printf("%d%d", i, j);
+                printf("%d", k);
                 continue;
             }
-            printf("%d%d ", i, j);
+            printf("%d ", k);
+            k++;
         }
+        k++;
         printf("\n");
     }
 
@@ -34,62 +38,181 @@ int main()
     printf("(User 1 : 1\n");
     printf(" User 2 : 0)\n");
 
-    int u1=0, u2=0;
+    int u1 = 0, u2 = 0;
 
-    int u11, u12;
-    printf("Enter your choice (1st Number) :-> ");
-    scanf("%d", &u11);
-    printf("Enter your choice (2nd Number) :-> ");
-    scanf("%d", &u12);
+    int user1;
 
-    printf("User 1 choice : %d%d\n", u11, u12);
+    printf("User 1\n");
 
-    grid[u11][u12] = 1;
+    printf("Enter your choice :-> ");
+    scanf("%d", &user1);
 
-    for (int i=0;i<4;i++)
+    printf("User 1's choice : %d\n", user1);
+
+    switch (user1)
     {
 
-        int u21, u22;
-        printf("Enter your choice (1st Number) :-> ");
-        scanf("%d", &u21);
-        printf("Enter your choice (2nd Number) :-> ");
-        scanf("%d", &u22);
+    case 1:
+        grid[0][0] = 1;
+        break;
 
-        printf("User 2 choice : %d%d\n", u21, u22);
+    case 2:
+        grid[0][1] = 1;
+        break;
 
-        grid[u21][u22] = 0;
+    case 3:
+        grid[0][2] = 1;
+        break;
 
-        printf("Enter your choice (1st Number) :-> ");
-        scanf("%d", &u11);
-        printf("Enter your choice (2nd Number) :-> ");
-        scanf("%d", &u12);
+    case 4:
+        grid[1][0] = 1;
+        break;
 
-        printf("User 1 choice : %d%d\n", u11, u12);
+    case 5:
+        grid[1][1] = 1;
+        break;
 
-        grid[u11][u12] = 1;
+    case 6:
+        grid[1][2] = 1;
+        break;
 
+    case 7:
+        grid[2][0] = 1;
+        break;
+
+    case 8:
+        grid[2][1] = 1;
+        break;
+
+    case 9:
+        grid[2][2] = 1;
+        break;
+    }
+
+    for (int i = 0; i < 4; i++)
+    {
+
+        int user2;
+
+        printf("User 2\n");
+
+        printf("Enter your choice :-> ");
+        scanf("%d", &user2);
+
+        printf("User 2's choice : %d\n", user2);
+
+        switch (user2)
+        {
+
+        case 1:
+            grid[0][0] = 0;
+            break;
+
+        case 2:
+            grid[0][1] = 0;
+            break;
+
+        case 3:
+            grid[0][2] = 0;
+            break;
+
+        case 4:
+            grid[1][0] = 0;
+            break;
+
+        case 5:
+            grid[1][1] = 0;
+            break;
+
+        case 6:
+            grid[1][2] = 0;
+            break;
+
+        case 7:
+            grid[2][0] = 0;
+            break;
+
+        case 8:
+            grid[2][1] = 0;
+            break;
+
+        case 9:
+            grid[2][2] = 0;
+            break;
+        }
+
+        printf("User 1\n");
+
+        printf("Enter your choice :-> ");
+        scanf("%d", &user1);
+
+        printf("User 1's choice : %d\n", user1);
+
+        switch (user1)
+        {
+
+        case 1:
+            grid[0][0] = 1;
+            break;
+
+        case 2:
+            grid[0][1] = 1;
+            break;
+
+        case 3:
+            grid[0][2] = 1;
+            break;
+
+        case 4:
+            grid[1][0] = 1;
+            break;
+
+        case 5:
+            grid[1][1] = 1;
+            break;
+
+        case 6:
+            grid[1][2] = 1;
+            break;
+
+        case 7:
+            grid[2][0] = 1;
+            break;
+
+        case 8:
+            grid[2][1] = 1;
+            break;
+
+        case 9:
+            grid[2][2] = 1;
+            break;
+        }
 
         if (grid[0][0] == 1 && grid[0][1] == 1 && grid[0][2] == 1 || grid[1][0] == 1 && grid[1][1] == 1 && grid[1][2] == 1 || grid[2][0] == 1 && grid[2][1] == 1 && grid[2][2] == 1 || grid[0][0] == 1 && grid[1][0] == 1 && grid[2][0] == 1 || grid[0][1] == 1 && grid[1][1] == 1 && grid[2][1] == 1 || grid[0][2] == 1 && grid[1][2] == 1 && grid[2][2] == 1 || grid[0][0] == 1 && grid[1][1] == 1 && grid[2][2] == 1 || grid[0][2] == 1 && grid[1][1] == 1 && grid[2][0] == 1)
         {
-            u1+=1;
+            u1 += 1;
             printf("Game Over!\n");
             printf("User 1 Wins!\n");
             break;
         }
         if (grid[0][0] == 0 && grid[0][1] == 0 && grid[0][2] == 0 || grid[1][0] == 0 && grid[1][1] == 0 && grid[1][2] == 0 || grid[2][0] == 0 && grid[2][1] == 0 && grid[2][2] == 0 || grid[0][0] == 0 && grid[1][0] == 0 && grid[2][0] == 0 || grid[0][1] == 0 && grid[1][1] == 0 && grid[2][1] == 0 || grid[0][2] == 0 && grid[1][2] == 0 && grid[2][2] == 0 || grid[0][0] == 0 && grid[1][1] == 0 && grid[2][2] == 0 || grid[0][2] == 0 && grid[1][1] == 0 && grid[2][0] == 0)
         {
-            u2+=1;
+            u2 += 1;
             printf("Game Over!\n");
             printf("User 2 Wins!\n");
             break;
         }
     }
 
-    if(u1 || u2){
+    if (u1 || u2)
+    {
         printf("Thank You!");
     }
-    else{
-        printf("Tied!");
+    else
+    {
+        printf("Game Over!\n");
+        printf("Tied!\n");
+        printf("Thank You!");
     }
 
     return 0;
